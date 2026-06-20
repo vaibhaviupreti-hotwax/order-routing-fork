@@ -87,11 +87,11 @@
         </template>
       </ion-list>
     </ion-content>
-    <ion-footer v-if="isAnyProductSelected">
+    <ion-footer>
       <ion-toolbar class="footer-actions">
         <ion-buttons>
-          <ion-button @click="openBulkInventoryEditModal">{{ "Adjust Inventory" }}</ion-button>
-          <ion-button @click="openProductFacilityConfigModal()">{{ "Adjust Config" }}</ion-button>
+          <ion-button :disabled="!isAnyProductSelected" @click="openBulkInventoryEditModal">{{ "Adjust Inventory" }}</ion-button>
+          <ion-button :disabled="!isAnyProductSelected" @click="openProductFacilityConfigModal()">{{ "Adjust Config" }}</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-footer>
@@ -228,6 +228,7 @@ ion-content {
   --columns-desktop: 6;
   border-bottom : 1px solid var(--ion-color-medium);
   align-items: center;
+  padding-inline-end: var(--spacer-base, 16px);
 }
 
 .list-item > ion-item {
