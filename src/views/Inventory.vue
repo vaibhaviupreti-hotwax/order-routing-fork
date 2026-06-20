@@ -220,9 +220,11 @@ async function openProductFacilityConfigModal(selectedProducts?: any[]) {
 </script>
 
 <style scoped>
+/* 
 ion-content {
-  --padding-bottom: 80px;
+  --padding-bottom: 80px; 
 }
+*/
 
 .list-item {
   --columns-desktop: 6;
