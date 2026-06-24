@@ -41,11 +41,17 @@
             </div>
             <ion-item>
               <ion-label>{{ translate("QOH") }}</ion-label>
-              <ion-label slot="end">{{ inventoryConfig.inventoryConfig?.qoh ?? "-" }}</ion-label>
+              <ion-label slot="end">
+                <ion-skeleton-text v-if="isLoading" animated style="width: 20px; float: right;" />
+                <template v-else>{{ inventoryConfig.inventoryConfig?.qoh ?? "-" }}</template>
+              </ion-label>
             </ion-item>
             <ion-item>
               <ion-label>{{ translate("ATP") }}</ion-label>
-              <ion-label slot="end">{{ inventoryConfig.inventoryConfig?.atp ?? "-" }}</ion-label>
+              <ion-label slot="end">
+                <ion-skeleton-text v-if="isLoading" animated style="width: 20px; float: right;" />
+                <template v-else>{{ inventoryConfig.inventoryConfig?.atp ?? "-" }}</template>
+              </ion-label>
             </ion-item>
           </ion-card>
         </section>
@@ -62,19 +68,31 @@
             </div>
             <ion-item>
               <ion-label>{{ translate("Allow Brokering") }}</ion-label>
-              <ion-label slot="end">{{ inventoryConfig.inventoryConfig?.allowBrokering ?? "Y" }}</ion-label>
+              <ion-label slot="end">
+                <ion-skeleton-text v-if="isLoading" animated style="width: 20px; float: right;" />
+                <template v-else>{{ inventoryConfig.inventoryConfig?.allowBrokering ?? "Y" }}</template>
+              </ion-label>
             </ion-item>
             <ion-item>
               <ion-label>{{ translate("Allow Pickup") }}</ion-label>
-              <ion-label slot="end">{{ inventoryConfig.inventoryConfig?.allowPickup ?? "Y" }}</ion-label>
+              <ion-label slot="end">
+                <ion-skeleton-text v-if="isLoading" animated style="width: 20px; float: right;" />
+                <template v-else>{{ inventoryConfig.inventoryConfig?.allowPickup ?? "Y" }}</template>
+              </ion-label>
             </ion-item>
             <ion-item>
               <ion-label>{{ translate("Safety stock") }}</ion-label>
-              <ion-label slot="end">{{ inventoryConfig.inventoryConfig?.minimumStock ?? "-" }}</ion-label>
+              <ion-label slot="end">
+                <ion-skeleton-text v-if="isLoading" animated style="width: 20px; float: right;" />
+                <template v-else>{{ inventoryConfig.inventoryConfig?.minimumStock ?? "-" }}</template>
+              </ion-label>
             </ion-item>
             <ion-item>
               <ion-label>{{ translate("Days to Ship") }}</ion-label>
-              <ion-label slot="end">{{ inventoryConfig.inventoryConfig?.daysToShip ?? "-" }}</ion-label>
+              <ion-label slot="end">
+                <ion-skeleton-text v-if="isLoading" animated style="width: 20px; float: right;" />
+                <template v-else>{{ inventoryConfig.inventoryConfig?.daysToShip ?? "-" }}</template>
+              </ion-label>
             </ion-item>
           </ion-card>
         </div>

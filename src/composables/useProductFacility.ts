@@ -20,6 +20,8 @@ const inventoryLogs: Ref<any[]> = ref([])
 export function useProductFacility() {
   
   async function fetchProductFacility(payload: any): Promise<number> {
+    // Clear previous data to prevent flickering
+    productFacility.value = []
     try {
       const resp = await api({
         url: "oms/productFacilities/search",
@@ -48,6 +50,8 @@ export function useProductFacility() {
   }
 
   async function fetchInventoryLogs(params: { productId: string, facilityId: string, pageSize: any }) {
+    // Clear previous logs to prevent flickering when navigating between products
+    inventoryLogs.value = []
     try {
       const resp = await api({
         url: "oms/inventoryItem/detail",

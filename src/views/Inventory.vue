@@ -24,7 +24,10 @@
             <ion-icon :icon="caretForwardOutline" />
           </ion-button>
         </div>
-        <p v-if="!products?.length" class="empty-state" data-testid="closed-empty-state">
+        <div v-if="isLoading" class="empty-state">
+          <ion-spinner name="crescent"></ion-spinner>
+        </div>
+        <p v-else-if="!products?.length" class="empty-state" data-testid="closed-empty-state">
           {{ translate("No products found") }}
         </p>
         <template v-else>
@@ -101,7 +104,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
 import router from '../router';
-import { IonButtons, IonButton, IonCheckbox, IonFooter, IonIcon, IonNote, IonPage, IonHeader, IonLabel, IonTitle, IonToolbar, IonContent, IonList, IonItem, IonSearchbar, IonSelect, IonSelectOption, IonThumbnail, onIonViewDidEnter, onIonViewDidLeave, modalController } from '@ionic/vue';
+import { IonButtons, IonButton, IonCheckbox, IonFooter, IonIcon, IonNote, IonPage, IonHeader, IonLabel, IonTitle, IonToolbar, IonContent, IonList, IonItem, IonSearchbar, IonSelect, IonSelectOption, IonThumbnail, IonSpinner, onIonViewDidEnter, onIonViewDidLeave, modalController } from '@ionic/vue';
 import { DxpShopifyImg, emitter, translate } from '@common';
 import { productStore } from '@/store/productStore';
 import { productStore as productInfoStore } from '@/store/product';
